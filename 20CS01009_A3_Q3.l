@@ -2,6 +2,10 @@
 #include <stdio.h>
 %}
 
+digit   [0-9]
+digits  {digit}+
+number  {digits}(\.{digits})?(E[+-]?{digits})?
+
 %%
 "INT"|"int"      { printf("Data Type:            INT\n"); }
 "FLOAT"|"float"  { printf("Data Type:            FLOAT\n"); }
@@ -26,7 +30,7 @@
 "="                             { printf("Assignment Operator:   =\n"); }
 "+"|"-"|"*"|"/"|"++"|"--"  { printf("Arithmetic Operator:    %s\n", yytext); }
 
-[0-9]+                 { printf("Number:                 %s\n", yytext); }
+{number}                 { printf("Number:                 %s\n", yytext); }
 [a-zA-Z_][a-zA-Z0-9_]* { printf("Identifier:             %s\n", yytext); }
 
 

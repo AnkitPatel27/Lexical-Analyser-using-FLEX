@@ -5,7 +5,7 @@
 
 %%
 [ \n\t]+ {}
-(0|1)*0000(0|1)* {printf("accepted\n");}
+(0|1)*1(0|1)*1(0|1)*1(0|1)*1(0|1)* {printf("accepted\n");}
 .* {printf("rejected\n");}
 %%
 
